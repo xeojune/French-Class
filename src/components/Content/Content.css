@@ -1,0 +1,17 @@
+.content {
+    width: 100%;
+}
+
+.content--header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header--title{
+    color: #526d82;
+}
+
+.table--list{
+    margin-top: 5%;
+}

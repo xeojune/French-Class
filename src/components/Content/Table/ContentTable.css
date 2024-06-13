@@ -1,0 +1,78 @@
+.table--list{
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.table--header {
+    display: flex;
+    margin: 2rem 0;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: #dde6ed;
+}
+
+.table--header h2 {
+    color: black;
+    padding: 10px;
+}
+
+.table--header select {
+    border-radius: 10px;
+    border: none;
+    padding: 8px 12px;
+    border: 1px solid #dde6ed;
+    color: #526d82;
+}
+
+/*Body CSS*/
+
+.body--title {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+    padding-right: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.body--title h3 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+
+/*Table CSS*/
+
+.table--container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 50px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+    padding-right: 10px;
+    align-items: center;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+.table--detail{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #526d82;
+}
+
+.table--detail img{
+    width: 50px;
+    background: #dde6ed;
+    border-radius: 50%;
+}
+
+.list:hover {
+    background: #dde6ed;
+    border-radius: 10px;
+}
