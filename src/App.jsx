@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Home from './pages/Home';
 import LessonPlan from './pages/LessonPlan';
-import Login from './pages/Login';
 import GrammarPlan from './pages/GrammarPlan';
-import NavBar from './components/NavBar/NavBar';
 import Background from './pages/Background';
+import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
+import RedirectAuthenticate from './components/ProtectedRoutes/RedirectAuthenticate';
 
 
 
@@ -18,11 +18,10 @@ function App() {
     <Router>
       <div className='app'>
         <Routes>
-          <Route path='/' element={<Background />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/lesson-plan" element={<LessonPlan />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/grammar-plan" element={<GrammarPlan />} />
+          <Route path='/' element={<RedirectAuthenticate><Background /></RedirectAuthenticate>} />
+          <Route path="/home" element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
+          <Route path="/lesson-plan" element={<ProtectedRoutes><LessonPlan /></ProtectedRoutes>} />
+          <Route path="/grammar-plan" element={<ProtectedRoutes><GrammarPlan /></ProtectedRoutes>} />
         </Routes>
       </div>
     </Router>
