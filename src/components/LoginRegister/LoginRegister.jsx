@@ -44,22 +44,9 @@ function LoginRegister({ onClose, setUser }) {
         }
     }, []);
 
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (modalRef.current && !modalRef.current.contains(event.target)) {
-                onClose();
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [onClose]);
-
     return (
-        <div className="wrapper" ref={modalRef}>
-            <div className={`form-box login ${isRegistering ? 'hidden' : ''}`}>
+        <div className="wrapper" ref={modalRef} onClick={onClose}>
+            <div className={`form-box login ${isRegistering ? 'hidden' : ''}`} onClick={(e) => e.stopPropagation()}>
                 <form onSubmit={handleLogin}>
                     <h1>Sign into Bonjourno</h1>
 
@@ -94,7 +81,7 @@ function LoginRegister({ onClose, setUser }) {
                 </form>
             </div>
 
-            <div className={`form-box register ${isRegistering ? '' : 'hidden'}`}>
+            <div className={`form-box register ${isRegistering ? '' : 'hidden'}`} onClick={(e) => e.stopPropagation()}>
                 <form action="">
                     <h1>Registration</h1>
                     <div className="input-box">

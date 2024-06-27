@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { BiHome, BiMessage, BiSolidReport, BiTask, BiHelpCircle } from 'react-icons/bi'
 import { CgProfile } from "react-icons/cg";
-import './NavBar.css'
+import { Link, useNavigate } from 'react-router-dom';
 import mainLogo from '../../assets/deepdive_labs_logo.png'
-import { Link } from 'react-router-dom';
 import LoginRegister from '../LoginRegister/LoginRegister';
+import './NavBar.css'
 
 
 function NavBar() {
   //display login page or not
-  const [showLogin, setShowLogin] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
   //set user ID to handle actual login
   const [user, setUser] = useState(null);
 
@@ -22,13 +23,13 @@ function NavBar() {
     }
   }, []);
 
-  const handleLogin = () => {
-    setShowLogin(!showLogin);
-  };
+  // const handleLogin = () => {
+  //   setShowLogin(!showLogin);
+  // };
 
-  const closeLogin = () => {
-    setShowLogin(false);
-  };
+  // const closeLogin = () => {
+  //   setShowLogin(false);
+  // };
 
   const handleLogout = () => {
     setUser(null);
@@ -39,13 +40,14 @@ function NavBar() {
     google.accounts.id.revoke(localStorage.getItem('userEmail'), () => {
       console.log('consent revoked');
     });
+    navigate('/');
   };
   
   return (
     <div className="menu">
       <box className = "logo-container">
         <div className="logo">
-          <img src={mainLogo}></img>
+          <img src={mainLogo} className='logo-img' alt='Logo' />
           <h2>French Class</h2>
         </div>
       </box>
@@ -55,7 +57,7 @@ function NavBar() {
           <CgProfile className='icon'/>
           Profile
         </Link>
-        <Link to="/" className="item">
+        <Link to="/home" className="item">
           <BiHome className='icon'/>
           DashBoard
         </Link>
@@ -82,13 +84,14 @@ function NavBar() {
                     <button onClick={handleLogout}>SignOut</button>
                 </>
             ) : (
-                <button onClick={handleLogin}>Login/SignUp</button>
+                // <button onClick={handleLogin}>Login/SignUp</button>
+                <></>
             )}
         </div>
       </div>
 
 
-      {showLogin && <LoginRegister onClose={closeLogin} setUser={setUser} />}
+      {/* {showLogin && <LoginRegister onClose={closeLogin} setUser={setUser} />} */}
     </div>
   )
 }
